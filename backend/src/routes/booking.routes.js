@@ -13,4 +13,28 @@ router.post(
   bookingController.createBooking
 );
 
+//Get my Bookings
+router.get(
+  "/",
+  authenticateToken,
+  roleMiddleware,
+  bookingController.getMyBookings
+);
+
+//Get Booking by ID
+router.get(
+  "/:id",
+  authenticateToken,
+  roleMiddleware,
+  bookingController.getBookingById
+);
+
+//Update Booking Status (Vendor Only)
+router.patch(
+  "/:id/status",
+  authenticateToken,
+  roleMiddleware,
+  bookingController.updateBookingStatus
+);
+
 module.exports = router;

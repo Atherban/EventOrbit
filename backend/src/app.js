@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const authRoutes = require("./routes/auth.routes");
 const serviceRoutes = require("./routes/service.routes");
+const bookingRoutes = require("./routes/booking.routes");
 
 // Middlewares
 const app = express();
@@ -16,5 +17,8 @@ app.use("/api/auth", authRoutes);
 
 // Service Routes
 app.use("/api/services", serviceRoutes);
+
+// Booking Routes
+app.use("/api/bookings", bookingRoutes);
 
 module.exports = app;
