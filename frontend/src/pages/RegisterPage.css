@@ -1,0 +1,146 @@
+/* Page layout */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f5;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Card container */
+.register-card {
+  width: 100%;
+  max-width: 80%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 24px 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+/* Title */
+.register-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Label */
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Inputs + select */
+.form-input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.25);
+}
+
+/* Error text */
+.form-error {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+/* Button */
+.form-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: #111827;
+  color: #ffffff;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.form-button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.form-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 20px 16px 24px;
+  }
+
+  .register-title {
+    font-size: 22px;
+  }
+}
+/* Existing CSS kept same and only adding below for switches */
+
+.role-switch-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.role-switch {
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 14px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.role-switch input {
+  display: none;
+}
+
+.role-switch.active {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+.role-switch:hover {
+  background: #f3f4f6;
+}

@@ -80,7 +80,9 @@ async function loginUser(req, res) {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    res.status(200).json({ message: "Login successful", user: user.name });
+    res.status(200).json({ message: "Login successful", user:{id: user._id,
+      name: user.name, role: user.role, email: user.email,} 
+    });
   } catch (error) {
     console.log("Error in user login:", error);
     res.status(500).json({ message: "Internal server error" });
