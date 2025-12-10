@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";            
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import "./LoginPage.css";
 import axios from "axios";
+import { Eye, EyeOff } from "lucide-react"; 
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email"),
@@ -13,6 +14,7 @@ const loginSchema = z.object({
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -66,6 +68,7 @@ const LoginPage = () => {
       <div className="login-card">
         <h1 className="login-title">Login</h1>
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+          {/* Email */}
           <div className="form-group">
             <label className="form-label">Email</label>
             <input
@@ -81,12 +84,24 @@ const LoginPage = () => {
 
           <div className="form-group">
             <label className="form-label">Password</label>
-            <input
-              type="password"
-              {...register("password")}
-              className="form-input"
-              placeholder="Enter your password"
-            />
+
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}    
+                {...register("password")}
+                className="form-input password-input"
+                placeholder="Enter your password"
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword((prev) => !prev)} 
+              >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}                     
+              </button>
+            </div>
+
             {errors.password && (
               <p className="form-error">{errors.password.message}</p>
             )}
@@ -116,4 +131,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
